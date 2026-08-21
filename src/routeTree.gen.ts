@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ProcessingRouteImport } from './routes/processing'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ReviewRouteImport } from './routes/review'
@@ -40,6 +41,11 @@ const DashboardRoute = DashboardRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProcessingRoute = ProcessingRouteImport.update({
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/analytics': typeof AnalyticsRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
   '/processing': typeof ProcessingRoute
   '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/analytics': typeof AnalyticsRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
   '/processing': typeof ProcessingRoute
   '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/analytics': typeof AnalyticsRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
   '/processing': typeof ProcessingRoute
   '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
@@ -133,6 +142,7 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/dashboard'
     | '/login'
+    | '/pricing'
     | '/processing'
     | '/reports'
     | '/review'
@@ -147,6 +157,7 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/dashboard'
     | '/login'
+    | '/pricing'
     | '/processing'
     | '/reports'
     | '/review'
@@ -161,6 +172,7 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/dashboard'
     | '/login'
+    | '/pricing'
     | '/processing'
     | '/reports'
     | '/review'
@@ -176,6 +188,7 @@ export interface RootRouteChildren {
   AnalyticsRoute: typeof AnalyticsRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
+  PricingRoute: typeof PricingRoute
   ProcessingRoute: typeof ProcessingRoute
   ReportsRoute: typeof ReportsRoute
   ReviewRoute: typeof ReviewRoute
@@ -214,6 +227,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/processing': {
@@ -280,6 +300,7 @@ const rootRouteChildren: RootRouteChildren = {
   AnalyticsRoute: AnalyticsRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
+  PricingRoute: PricingRoute,
   ProcessingRoute: ProcessingRoute,
   ReportsRoute: ReportsRoute,
   ReviewRoute: ReviewRoute,

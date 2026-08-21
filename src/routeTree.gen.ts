@@ -16,6 +16,7 @@ import { Route as ProcessingRouteImport } from './routes/processing'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as UploadRouteImport } from './routes/upload'
+import { Route as ExpensesIndexRouteImport } from './routes/expenses.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const UploadRoute = UploadRouteImport.update({
   path: '/upload',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExpensesIndexRoute = ExpensesIndexRouteImport.update({
+  id: '/expenses/',
+  path: '/expenses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/review': typeof ReviewRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
+  '/expenses/': typeof ExpensesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/review': typeof ReviewRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
+  '/expenses': typeof ExpensesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/review': typeof ReviewRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
+  '/expenses/': typeof ExpensesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/review'
     | '/signup'
     | '/upload'
+    | '/expenses/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/review'
     | '/signup'
     | '/upload'
+    | '/expenses'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/review'
     | '/signup'
     | '/upload'
+    | '/expenses/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   ReviewRoute: typeof ReviewRoute
   SignupRoute: typeof SignupRoute
   UploadRoute: typeof UploadRoute
+  ExpensesIndexRoute: typeof ExpensesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UploadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/expenses/': {
+      id: '/expenses/'
+      path: '/expenses'
+      fullPath: '/expenses/'
+      preLoaderRoute: typeof ExpensesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReviewRoute: ReviewRoute,
   SignupRoute: SignupRoute,
   UploadRoute: UploadRoute,
+  ExpensesIndexRoute: ExpensesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

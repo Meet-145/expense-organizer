@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ProcessingRouteImport } from './routes/processing'
+import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as UploadRouteImport } from './routes/upload'
@@ -37,6 +38,11 @@ const LoginRoute = LoginRouteImport.update({
 const ProcessingRoute = ProcessingRouteImport.update({
   id: '/processing',
   path: '/processing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReviewRoute = ReviewRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/processing': typeof ProcessingRoute
+  '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/processing': typeof ProcessingRoute
+  '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/processing': typeof ProcessingRoute
+  '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/processing'
+    | '/reports'
     | '/review'
     | '/signup'
     | '/upload'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/processing'
+    | '/reports'
     | '/review'
     | '/signup'
     | '/upload'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/processing'
+    | '/reports'
     | '/review'
     | '/signup'
     | '/upload'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
   ProcessingRoute: typeof ProcessingRoute
+  ReportsRoute: typeof ReportsRoute
   ReviewRoute: typeof ReviewRoute
   SignupRoute: typeof SignupRoute
   UploadRoute: typeof UploadRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/processing'
       fullPath: '/processing'
       preLoaderRoute: typeof ProcessingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/review': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
   ProcessingRoute: ProcessingRoute,
+  ReportsRoute: ReportsRoute,
   ReviewRoute: ReviewRoute,
   SignupRoute: SignupRoute,
   UploadRoute: UploadRoute,

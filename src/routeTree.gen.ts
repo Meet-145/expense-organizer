@@ -16,6 +16,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as ProcessingRouteImport } from './routes/processing'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as ReviewRouteImport } from './routes/review'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as ExpensesIndexRouteImport } from './routes/expenses.index'
@@ -56,6 +57,11 @@ const ReviewRoute = ReviewRouteImport.update({
   path: '/review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/processing': typeof ProcessingRoute
   '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
+  '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
   '/expenses/$expenseId': typeof ExpensesExpenseIdRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/processing': typeof ProcessingRoute
   '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
+  '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
   '/expenses/$expenseId': typeof ExpensesExpenseIdRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/processing': typeof ProcessingRoute
   '/reports': typeof ReportsRoute
   '/review': typeof ReviewRoute
+  '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
   '/upload': typeof UploadRoute
   '/expenses/$expenseId': typeof ExpensesExpenseIdRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/processing'
     | '/reports'
     | '/review'
+    | '/settings'
     | '/signup'
     | '/upload'
     | '/expenses/$expenseId'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/processing'
     | '/reports'
     | '/review'
+    | '/settings'
     | '/signup'
     | '/upload'
     | '/expenses/$expenseId'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/processing'
     | '/reports'
     | '/review'
+    | '/settings'
     | '/signup'
     | '/upload'
     | '/expenses/$expenseId'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   ProcessingRoute: typeof ProcessingRoute
   ReportsRoute: typeof ReportsRoute
   ReviewRoute: typeof ReviewRoute
+  SettingsRoute: typeof SettingsRoute
   SignupRoute: typeof SignupRoute
   UploadRoute: typeof UploadRoute
   ExpensesExpenseIdRoute: typeof ExpensesExpenseIdRoute
@@ -224,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProcessingRoute: ProcessingRoute,
   ReportsRoute: ReportsRoute,
   ReviewRoute: ReviewRoute,
+  SettingsRoute: SettingsRoute,
   SignupRoute: SignupRoute,
   UploadRoute: UploadRoute,
   ExpensesExpenseIdRoute: ExpensesExpenseIdRoute,

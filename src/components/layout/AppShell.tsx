@@ -9,7 +9,6 @@ import {
   Settings,
   LogOut,
   Menu,
-  Sparkles,
   CreditCard,
   X,
 } from "lucide-react";

@@ -25,7 +25,7 @@ function LoginPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [email, setEmail] = useState("owner@brightleaf.in");
-  const [password, setPassword] = useState("demo1234");
+  const [password, setPassword] = useState("welcome1234");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

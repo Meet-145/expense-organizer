@@ -45,7 +45,7 @@ function UploadPage() {
             }}
             onDemo={() => {
               draftStore.set({
-                fileName: "demo-receipt-ccd-mgroad.jpg",
+                fileName: "sample-receipt-ccd-mgroad.jpg",
                 fileSize: 248_000,
                 isDemo: true,
               });

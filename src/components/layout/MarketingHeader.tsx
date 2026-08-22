@@ -16,11 +16,8 @@ export function MarketingHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-deep/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="grid size-9 place-items-center rounded-xl bg-brand text-brand-foreground">
-            <Sparkles className="size-5" />
-          </div>
-          <span className="font-display text-base font-semibold text-white">Expense Organizer</span>
+        <Link to="/" className="flex items-center">
+          <Logo className="h-10 bg-white p-1 sm:h-11" />
         </Link>
 
         <nav className="ml-6 hidden items-center gap-6 md:flex">

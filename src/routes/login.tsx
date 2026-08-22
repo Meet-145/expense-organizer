@@ -124,13 +124,8 @@ export function AuthLayout({
 
       <div className="flex items-center justify-center bg-slate-50 px-4 py-12">
         <div className="w-full max-w-sm rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <Link to="/" className="mb-6 flex items-center gap-2 lg:hidden">
-            <div className="grid size-8 place-items-center rounded-lg bg-brand text-brand-foreground">
-              <Sparkles className="size-4" />
-            </div>
-            <span className="font-display text-sm font-semibold text-slate-900">
-              Expense Organizer
-            </span>
+          <Link to="/" className="mb-6 flex items-center lg:hidden">
+            <Logo className="h-10" />
           </Link>
           <h1 className="font-display text-2xl font-semibold text-slate-900">{title}</h1>
           <p className="mt-2 mb-6 text-sm text-slate-500">{subtitle}</p>

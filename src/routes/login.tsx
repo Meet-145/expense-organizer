@@ -13,9 +13,9 @@ export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
       { title: "Log in — Expense Organizer" },
-      { name: "description", content: "Sign in to your Expense Organizer demo workspace." },
+      { name: "description", content: "Sign in to your Expense Organizer workspace." },
       { property: "og:title", content: "Log in — Expense Organizer" },
-      { property: "og:description", content: "Sign in to your Expense Organizer demo workspace." },
+      { property: "og:description", content: "Sign in to your Expense Organizer workspace." },
     ],
   }),
   component: LoginPage,
@@ -36,7 +36,7 @@ function LoginPage() {
   return (
     <AuthLayout
       title="Welcome back"
-      subtitle="Sign in to your expense workspace. Any valid email and a 6+ character password works in demo mode."
+      subtitle="Sign in to your expense workspace. Any valid email and a 6+ character password works."
     >
       <form
         className="space-y-4"
@@ -119,7 +119,7 @@ export function AuthLayout({
           </p>
         </div>
         <p className="text-xs text-slate-500">
-          Demo prototype · no real accounts, no real payments, data stays in your browser.
+          No real payments — your data stays in your browser.
         </p>
       </div>
 

@@ -15,9 +15,9 @@ export const Route = createFileRoute("/settings")({
   head: () => ({
     meta: [
       { title: "Settings — Expense Organizer" },
-      { name: "description", content: "Manage your profile, business details and demo data." },
+      { name: "description", content: "Manage your profile, business details and sample data." },
       { property: "og:title", content: "Settings — Expense Organizer" },
-      { property: "og:description", content: "Manage your profile, business details and demo data." },
+      { property: "og:description", content: "Manage your profile, business details and sample data." },
     ],
   }),
   component: SettingsPage,
@@ -34,7 +34,7 @@ function SettingsPage() {
   });
 
   return (
-    <AppShell title="Settings" description="Profile, business and demo data">
+    <AppShell title="Settings" description="Profile, business and sample data">
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
@@ -79,11 +79,11 @@ function SettingsPage() {
 
         <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
-            <CardTitle className="font-display text-base text-slate-900">Demo data</CardTitle>
+            <CardTitle className="font-display text-base text-slate-900">Sample data</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-sm text-slate-600">
             <p>
-              This prototype stores everything in your browser. Resetting restores the original
+              Everything is stored in your browser. Resetting restores the original
               sample expenses and discards anything you added.
             </p>
             <Button
@@ -91,10 +91,10 @@ function SettingsPage() {
               className="text-destructive hover:text-destructive"
               onClick={() => {
                 reset();
-                toast.success("Demo data restored.");
+                toast.success("Sample data restored.");
               }}
             >
-              <RotateCcw className="size-4" /> Reset demo data
+              <RotateCcw className="size-4" /> Reset sample data
             </Button>
           </CardContent>
         </Card>

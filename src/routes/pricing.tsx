@@ -61,8 +61,7 @@ function PricingPage() {
           Pricing that fits a small business
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-center text-slate-600">
-          Prototype only — no payment is ever taken. Choosing a plan just switches your demo
-          workspace label.
+          No payment is ever taken. Choosing a plan just switches your workspace label.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -98,7 +97,7 @@ function PricingPage() {
                     ? "bg-brand text-brand-foreground hover:bg-brand/90"
                     : "bg-slate-900 text-white hover:bg-slate-800",
                 )}
-                onClick={() => toast.info(`${p.name} selected — billing is disabled in this demo.`)}
+                onClick={() => toast.info(`${p.name} selected — billing is disabled here.`)}
               >
                 Choose {p.name}
               </Button>
@@ -109,7 +108,7 @@ function PricingPage() {
         <p className="mt-10 text-center text-sm text-slate-500">
           Want to poke around first?{" "}
           <Link to="/dashboard" className="font-medium text-brand hover:underline">
-            Open the demo dashboard
+            Open the dashboard
           </Link>
         </p>
       </main>

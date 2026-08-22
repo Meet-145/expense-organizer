@@ -8,7 +8,7 @@ export function MarketingFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 sm:px-6 md:flex-row md:items-center">
         <Logo markClassName="h-9" textClassName="text-sm" />
         <p className="text-xs md:ml-4">
-          Built for Indian small businesses. GST-ready reports, INR-first. Prototype — demo data only.
+          Built for Indian small businesses. GST-ready reports, INR-first. Sample data only.
         </p>
         <nav className="flex gap-4 text-xs md:ml-auto">
           <Link to="/pricing" className="hover:text-white">

@@ -18,7 +18,7 @@ export function MarketingHeader() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-deep/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-4 sm:px-6">
         <Link to="/" className="flex items-center">
-          <Logo className="h-10 bg-white p-1 sm:h-11" />
+          <Logo markClassName="h-9 sm:h-10" />
         </Link>
 
         <nav className="ml-6 hidden items-center gap-6 md:flex">

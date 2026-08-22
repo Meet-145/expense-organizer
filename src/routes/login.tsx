@@ -108,7 +108,7 @@ export function AuthLayout({
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="hidden flex-col justify-between bg-navy-deep p-10 lg:flex">
         <Link to="/" className="flex items-center">
-          <Logo className="h-12 bg-white p-1" />
+          <Logo markClassName="h-11" textClassName="text-lg" />
         </Link>
         <div>
           <h2 className="font-display text-3xl leading-snug font-semibold text-white">
@@ -126,7 +126,7 @@ export function AuthLayout({
       <div className="flex items-center justify-center bg-slate-50 px-4 py-12">
         <div className="w-full max-w-sm rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
           <Link to="/" className="mb-6 flex items-center lg:hidden">
-            <Logo className="h-10" />
+            <Logo markClassName="h-9" textClassName="text-slate-900 text-sm" />
           </Link>
           <h1 className="font-display text-2xl font-semibold text-slate-900">{title}</h1>
           <p className="mt-2 mb-6 text-sm text-slate-500">{subtitle}</p>

@@ -63,7 +63,7 @@ export function AppShell({
   const sidebar = (
     <div className="flex h-full flex-col bg-navy-deep text-slate-200">
       <div className="flex items-center gap-2 px-5 py-5">
-        <Logo className="h-11 min-w-0 flex-1 bg-white p-1" />
+        <Logo className="min-w-0 flex-1" markClassName="h-9" textClassName="text-sm" showTagline />
         <Button
           variant="ghost"
           size="icon"

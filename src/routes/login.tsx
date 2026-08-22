@@ -106,11 +106,8 @@ export function AuthLayout({
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="hidden flex-col justify-between bg-navy-deep p-10 lg:flex">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="grid size-9 place-items-center rounded-xl bg-brand text-brand-foreground">
-            <Sparkles className="size-5" />
-          </div>
-          <span className="font-display text-base font-semibold text-white">Expense Organizer</span>
+        <Link to="/" className="flex items-center">
+          <Logo className="h-12 bg-white p-1" />
         </Link>
         <div>
           <h2 className="font-display text-3xl leading-snug font-semibold text-white">

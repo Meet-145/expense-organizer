@@ -60,7 +60,7 @@ function Landing() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-slate-300">
-              <Sparkles className="size-3.5 text-positive" /> Demo prototype · Indian SMBs · FY 2026-27
+              <Sparkles className="size-3.5 text-positive" /> Built for Indian SMBs · FY 2026-27
             </span>
             <h1 className="font-display mt-5 text-4xl leading-tight font-semibold text-white sm:text-5xl">
               Receipts in.{" "}
@@ -82,13 +82,13 @@ function Landing() {
                   variant="outline"
                   className="w-full border-white/20 bg-transparent text-white hover:bg-white/10 sm:w-auto"
                 >
-                  Try the demo receipt
+                  Try a sample receipt
                 </Button>
               </Link>
             </div>
             <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
               {[
-                ["₹4.2L", "tracked in demo data"],
+                ["₹4.2L", "tracked this year"],
                 ["12 sec", "average per receipt"],
                 ["96%", "field-level accuracy"],
               ].map(([v, l]) => (
@@ -157,13 +157,13 @@ function Landing() {
               Close your books before your chai gets cold
             </h2>
             <p className="mt-2 flex items-center gap-2 text-sm text-slate-300">
-              <Clock className="size-4 text-positive" /> Sign in with any email and password — it's a demo.
+              <Clock className="size-4 text-positive" /> Sign in with any email and password to get started.
             </p>
           </div>
           <div className="md:ml-auto">
             <Link to="/login">
               <Button size="lg" className="bg-positive text-white hover:bg-positive/90">
-                Open the demo dashboard <ArrowRight className="size-4" />
+                Open the dashboard <ArrowRight className="size-4" />
               </Button>
             </Link>
           </div>

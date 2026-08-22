@@ -81,7 +81,7 @@ export function ReceiptPreview({
         <div className="my-3 border-t border-dashed border-slate-300" />
         <p className="text-center">Paid via UPI · Thank you!</p>
         <p className="mt-2 flex items-center justify-center gap-1 text-[10px] text-slate-400">
-          <FileText className="size-3" /> {fileName ?? "demo-receipt.jpg"}
+          <FileText className="size-3" /> {fileName ?? "sample-receipt.jpg"}
         </p>
       </div>
     </div>

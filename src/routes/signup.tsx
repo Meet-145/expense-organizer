@@ -15,12 +15,12 @@ export const Route = createFileRoute("/signup")({
       { title: "Create your account — Expense Organizer" },
       {
         name: "description",
-        content: "Set up a free Expense Organizer demo workspace for your small business.",
+        content: "Set up a free Expense Organizer workspace for your small business.",
       },
       { property: "og:title", content: "Create your account — Expense Organizer" },
       {
         property: "og:description",
-        content: "Set up a free Expense Organizer demo workspace for your small business.",
+        content: "Set up a free Expense Organizer workspace for your small business.",
       },
     ],
   }),
@@ -49,7 +49,7 @@ function SignupPage() {
   return (
     <AuthLayout
       title="Create your workspace"
-      subtitle="Start with 25 free receipts a month. No card needed — this prototype never charges anything."
+      subtitle="Start with 25 free receipts a month. No card needed."
     >
       <form
         className="space-y-4"

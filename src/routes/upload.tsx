@@ -45,11 +45,11 @@ function UploadPage() {
             }}
             onDemo={() => {
               draftStore.set({
-                fileName: "demo-receipt-ccd-mgroad.jpg",
+                fileName: "sample-receipt-ccd-mgroad.jpg",
                 fileSize: 248_000,
                 isDemo: true,
               });
-              toast.info("Using the demo receipt.");
+              toast.info("Using a sample receipt.");
               navigate({ to: "/processing" });
             }}
           />
@@ -78,7 +78,7 @@ function UploadPage() {
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-slate-600">
               <p>
-                This prototype is <span className="font-medium text-slate-900">frontend only</span>.
+                This workspace runs <span className="font-medium text-slate-900">entirely in your browser</span>.
                 Files never leave your browser — the extraction service returns realistic mock data.
               </p>
               <p>

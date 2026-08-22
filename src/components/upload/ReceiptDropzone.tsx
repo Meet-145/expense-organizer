@@ -115,7 +115,7 @@ export function ReceiptDropzone({
       <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
         <span className="text-sm text-slate-500">Don't have a receipt handy?</span>
         <Button variant="outline" onClick={onDemo} className="border-brand/40 text-brand">
-          <Sparkles className="size-4" /> Try demo receipt
+          <Sparkles className="size-4" /> Try a sample receipt
         </Button>
       </div>
     </div>

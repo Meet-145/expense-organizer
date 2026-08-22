@@ -63,13 +63,7 @@ export function AppShell({
   const sidebar = (
     <div className="flex h-full flex-col bg-navy-deep text-slate-200">
       <div className="flex items-center gap-2 px-5 py-5">
-        <div className="grid size-9 place-items-center rounded-xl bg-brand text-brand-foreground">
-          <Sparkles className="size-5" />
-        </div>
-        <div>
-          <p className="font-display text-sm font-semibold text-white">Expense Organizer</p>
-          <p className="text-[11px] text-slate-400">AI receipts for SMBs</p>
-        </div>
+        <Logo className="h-11 min-w-0 flex-1 bg-white p-1" />
         <Button
           variant="ghost"
           size="icon"

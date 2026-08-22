@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { useRequireAuth } from "@/hooks/use-auth";
 import { authService } from "@/services/auth";
 import { DemoNotice } from "./DemoNotice";
+import { Logo } from "./Logo";
 
 const NAV = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },

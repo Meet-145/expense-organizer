@@ -1,16 +1,45 @@
-import logoAsset from "@/assets/expense-organizer-logo.jpg.asset.json";
+import markAsset from "@/assets/expense-organizer-mark.jpg.asset.json";
 import { cn } from "@/lib/utils";
 
 /**
- * Brand lockup. The supplied logo already contains the wordmark, so it is used
- * as a single image (proportions preserved via `h-* w-auto`).
+ * Brand lockup: the supplied logo mark (proportions preserved via `w-auto`)
+ * alongside the wordmark.
  */
-export function Logo({ className }: { className?: string }) {
+export function Logo({
+  className,
+  markClassName,
+  textClassName,
+  showText = true,
+  showTagline = false,
+}: {
+  className?: string;
+  markClassName?: string;
+  textClassName?: string;
+  showText?: boolean;
+  showTagline?: boolean;
+}) {
   return (
-    <img
-      src={logoAsset.url}
-      alt="Expense Organizer — automated receipt management"
-      className={cn("h-9 w-auto rounded-md object-contain", className)}
-    />
+    <span className={cn("flex items-center gap-2", className)}>
+      <img
+        src={markAsset.url}
+        alt="Expense Organizer logo"
+        className={cn("h-9 w-auto rounded-md object-contain", markClassName)}
+      />
+      {showText && (
+        <span className="min-w-0">
+          <span
+            className={cn(
+              "font-display block truncate text-base font-semibold text-white",
+              textClassName,
+            )}
+          >
+            Expense Organizer
+          </span>
+          {showTagline && (
+            <span className="block text-[11px] text-slate-400">Automated receipt management</span>
+          )}
+        </span>
+      )}
+    </span>
   );
 }

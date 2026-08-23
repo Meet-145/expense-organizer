@@ -79,13 +79,14 @@ function UploadPage() {
             <CardContent className="space-y-2 text-sm text-slate-600">
               <p>
                 This workspace runs <span className="font-medium text-slate-900">entirely in your browser</span>.
-                Files never leave your browser — the extraction service returns realistic mock data.
+                Your files stay on your device, and the extraction service returns realistic sample results.
               </p>
               <p>
-                The service module is written so a real vision-model call can be dropped in behind a
-                server endpoint later, without touching any of this UI.
+                The extraction layer is isolated behind a service module, so a live vision model can be
+                connected through a secure server endpoint without any change to this interface.
               </p>
             </CardContent>
+
           </Card>
         </div>
       </div>

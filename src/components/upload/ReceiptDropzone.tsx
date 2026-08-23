@@ -106,14 +106,14 @@ export function ReceiptDropzone({
         <div className="flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
           <TriangleAlert className="mt-0.5 size-4 shrink-0" />
           <div>
-            <p className="font-medium">We couldn't accept that file</p>
+            <p className="font-medium">This file couldn't be accepted</p>
             <p className="text-destructive/80">{error}</p>
           </div>
         </div>
       )}
 
       <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-        <span className="text-sm text-slate-500">Don't have a receipt handy?</span>
+        <span className="text-sm text-slate-500">No receipt on hand?</span>
         <Button variant="outline" onClick={onDemo} className="border-brand/40 text-brand">
           <Sparkles className="size-4" /> Try a sample receipt
         </Button>

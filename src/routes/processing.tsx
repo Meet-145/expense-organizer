@@ -48,7 +48,11 @@ function ProcessingPage() {
       navigate({ to: "/review" });
     } catch (err) {
       if (controller.signal.aborted) return;
-      setError(err instanceof Error ? err.message : "Extraction failed. Please try again.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Extraction could not be completed. Please try again.",
+      );
     }
   }, [navigate]);
 
@@ -62,12 +66,12 @@ function ProcessingPage() {
   }, [run, navigate, attempt]);
 
   return (
-    <AppShell title="Processing receipt" description="This usually takes about 10 seconds">
+    <AppShell title="Processing receipt" description="Extraction typically completes in about 10 seconds">
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
             <CardTitle className="font-display text-base text-slate-900">
-              {error ? "Extraction failed" : "AI extraction in progress"}
+              {error ? "Extraction incomplete" : "Extracting receipt details"}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -76,7 +80,7 @@ function ProcessingPage() {
                 <div className="flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
                   <TriangleAlert className="mt-0.5 size-4 shrink-0" />
                   <div>
-                    <p className="font-medium">We couldn't finish reading this receipt</p>
+                    <p className="font-medium">We couldn't complete extraction for this receipt</p>
                     <p className="text-destructive/80">{error}</p>
                   </div>
                 </div>
@@ -85,10 +89,10 @@ function ProcessingPage() {
                     onClick={() => setAttempt((a) => a + 1)}
                     className="bg-brand text-brand-foreground hover:bg-brand/90"
                   >
-                    <RefreshCw className="size-4" /> Retry extraction
+                    <RefreshCw className="size-4" /> Try extraction again
                   </Button>
                   <Button variant="outline" onClick={() => navigate({ to: "/upload" })}>
-                    Upload a different receipt
+                    Use a different receipt
                   </Button>
                 </div>
               </div>
@@ -113,7 +117,7 @@ function ProcessingPage() {
 
         <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
-            <CardTitle className="font-display text-base text-slate-900">Your receipt</CardTitle>
+            <CardTitle className="font-display text-base text-slate-900">Document preview</CardTitle>
           </CardHeader>
           <CardContent>
             <ReceiptPreview previewUrl={draft?.previewUrl} fileName={draft?.fileName} />

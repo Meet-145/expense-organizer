@@ -5,11 +5,12 @@ export function DemoNotice() {
     <div className="flex items-start gap-3 rounded-xl border border-brand/20 bg-brand/5 px-4 py-3 text-sm text-slate-700">
       <Info className="mt-0.5 size-4 shrink-0 text-brand" />
       <p>
-        <span className="font-medium text-slate-900">Sample workspace.</span> Data is sample INR data stored
-        in your browser and receipt extraction is simulated. In production the app calls a secure{" "}
-        <code className="rounded bg-white px-1 py-0.5 text-xs">/api/extract-receipt</code> endpoint
-        backed by Gemini — the API key never reaches the browser.
+        <span className="font-medium text-slate-900">Sample workspace.</span> Figures shown are sample
+        INR records stored locally in your browser, and receipt extraction runs against a simulated
+        model. In a live deployment, extraction is handled by a secure server endpoint so credentials
+        are never exposed to the browser.
       </p>
+
     </div>
   );
 }

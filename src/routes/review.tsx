@@ -12,12 +12,12 @@ import { uid } from "@/lib/format";
 export const Route = createFileRoute("/review")({
   head: () => ({
     meta: [
-      { title: "Review extracted data — Expense Organizer" },
-      { name: "description", content: "Check the AI's reading of your receipt before saving it." },
-      { property: "og:title", content: "Review extracted data — Expense Organizer" },
+      { title: "Review extracted details — Expense Organizer" },
+      { name: "description", content: "Verify the details extracted from your receipt before saving." },
+      { property: "og:title", content: "Review extracted details — Expense Organizer" },
       {
         property: "og:description",
-        content: "Check the AI's reading of your receipt before saving it.",
+        content: "Verify the details extracted from your receipt before saving.",
       },
     ],
   }),
@@ -58,8 +58,8 @@ function ReviewPage() {
 
   return (
     <AppShell
-      title="Review extracted data"
-      description="Fields with low confidence are flagged — fix anything that looks off"
+      title="Review extracted details"
+      description="Verify the extracted values before saving. Fields read with lower certainty are flagged for your attention."
     >
       <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
         <Card className="border-slate-200 bg-white shadow-sm">
@@ -84,7 +84,7 @@ function ReviewPage() {
                   createdAt: new Date().toISOString(),
                 });
                 draftStore.clear();
-                toast.success("Expense saved to your books.");
+                toast.success("Expense verified and saved to your records.");
                 navigate({ to: "/dashboard" });
               }}
             />
@@ -93,7 +93,7 @@ function ReviewPage() {
 
         <Card className="h-fit border-slate-200 bg-white shadow-sm lg:sticky lg:top-6">
           <CardHeader>
-            <CardTitle className="font-display text-base text-slate-900">Source receipt</CardTitle>
+            <CardTitle className="font-display text-base text-slate-900">Source document</CardTitle>
           </CardHeader>
           <CardContent>
             <ReceiptPreview

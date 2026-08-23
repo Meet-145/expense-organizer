@@ -12,12 +12,12 @@ export const Route = createFileRoute("/upload")({
       { title: "Upload receipt — Expense Organizer" },
       {
         name: "description",
-        content: "Drag and drop a receipt photo or PDF and let the AI extract every field.",
+        content: "Upload a receipt photo or PDF and have every field captured automatically.",
       },
       { property: "og:title", content: "Upload receipt — Expense Organizer" },
       {
         property: "og:description",
-        content: "Drag and drop a receipt photo or PDF and let the AI extract every field.",
+        content: "Upload a receipt photo or PDF and have every field captured automatically.",
       },
     ],
   }),
@@ -28,7 +28,7 @@ function UploadPage() {
   const navigate = useNavigate();
 
   return (
-    <AppShell title="Upload receipt" description="Photo, scan or PDF — we'll do the typing">
+    <AppShell title="Upload receipt" description="Upload a photo, scan or PDF and we'll capture the details for you">
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <ReceiptDropzone
@@ -40,7 +40,7 @@ function UploadPage() {
                 isDemo: false,
                 file,
               });
-              toast.success("Receipt uploaded — extracting details…");
+              toast.success("Receipt uploaded. Extracting details…");
               navigate({ to: "/processing" });
             }}
             onDemo={() => {
@@ -49,7 +49,7 @@ function UploadPage() {
                 fileSize: 248_000,
                 isDemo: true,
               });
-              toast.info("Using a sample receipt.");
+              toast.info("Using a sample receipt for this extraction.");
               navigate({ to: "/processing" });
             }}
           />
@@ -59,21 +59,21 @@ function UploadPage() {
           <Card className="border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="font-display flex items-center gap-2 text-base text-slate-900">
-                <Lightbulb className="size-4 text-warning" /> Tips for a clean scan
+                <Lightbulb className="size-4 text-warning" /> Tips for an accurate capture
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-slate-600">
-              <p>• Flatten the receipt and shoot straight down.</p>
-              <p>• Keep the GSTIN and total inside the frame.</p>
-              <p>• Avoid shadows — daylight works best.</p>
-              <p>• Multi-page bills: upload the PDF instead of photos.</p>
+              <p>• Flatten the receipt and photograph it straight on.</p>
+              <p>• Keep the GSTIN and total amount fully within the frame.</p>
+              <p>• Avoid shadows and glare; natural daylight works best.</p>
+              <p>• For multi-page invoices, upload the PDF rather than separate photos.</p>
             </CardContent>
           </Card>
 
           <Card className="border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="font-display flex items-center gap-2 text-base text-slate-900">
-                <ShieldCheck className="size-4 text-positive" /> How extraction works here
+                <ShieldCheck className="size-4 text-positive" /> How extraction works
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-slate-600">

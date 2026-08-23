@@ -71,7 +71,7 @@ export function ExpenseForm({
   const validate = () => {
     const next: Record<string, string> = {};
     if (!values.merchant.trim()) next["merchant"] = "Merchant name is required.";
-    if (!values.date) next["date"] = "Pick the receipt date.";
+    if (!values.date) next["date"] = "Please provide the receipt date.";
     if (!(values.total > 0)) next["total"] = "Total must be greater than zero.";
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -152,7 +152,7 @@ export function ExpenseForm({
           <div>
             <p className="text-sm font-semibold text-slate-900">Line items</p>
             <p className="text-xs text-slate-500">
-              Items total {formatINR(itemsTotal)} — edit anything the AI got wrong.
+              Items total {formatINR(itemsTotal)} — adjust any line that needs correcting.
             </p>
           </div>
           <div className="flex gap-2">

@@ -24,12 +24,12 @@ export type ProcessingStage =
   | "done";
 
 export const STAGE_LABELS: Record<ProcessingStage, string> = {
-  uploading: "Uploading receipt securely",
-  ocr: "Reading text from the image (OCR)",
-  understanding: "Understanding merchant, date & totals",
-  structuring: "Structuring line items and GST",
-  validating: "Validating amounts and confidence",
-  done: "Extraction complete",
+  uploading: "Securely uploading your receipt",
+  ocr: "Recognising text on the document",
+  understanding: "Identifying merchant, date and amounts",
+  structuring: "Structuring line items and GST details",
+  validating: "Verifying totals and extraction accuracy",
+  done: "Extraction complete — ready for review",
 };
 
 export const MAX_FILE_BYTES = 10 * 1024 * 1024;
@@ -37,13 +37,13 @@ export const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "applica
 
 export function validateFile(file: File): string | null {
   if (!ACCEPTED_TYPES.includes(file.type)) {
-    return "Unsupported file type. Upload a JPG, PNG, WEBP or PDF receipt.";
+    return "This file format isn't supported. Please upload a JPG, PNG, WEBP or PDF receipt.";
   }
   if (file.size > MAX_FILE_BYTES) {
-    return "That file is larger than 10 MB. Try a compressed photo of the receipt.";
+    return "This file exceeds the 10 MB limit. Please upload a compressed photo or a smaller PDF.";
   }
   if (file.size < 1024) {
-    return "That file looks empty or corrupted. Please pick another receipt.";
+    return "This file appears to be empty or damaged. Please select a different receipt.";
   }
   return null;
 }
@@ -147,20 +147,20 @@ export async function extractReceipt(
   const stages: ProcessingStage[] = ["uploading", "ocr", "understanding", "structuring", "validating"];
 
   for (let i = 0; i < stages.length; i++) {
-    if (options.signal?.aborted) throw new Error("Processing cancelled.");
+    if (options.signal?.aborted) throw new Error("Processing was cancelled.");
     options.onStage?.(stages[i]!, Math.round(((i + 1) / (stages.length + 1)) * 100));
     await new Promise((r) => setTimeout(r, 700 + Math.random() * 500));
   }
 
   if (options.simulateFailure) {
-    throw new Error("We couldn't read that receipt clearly. Try a brighter, flatter photo.");
+    throw new Error("Some details on this receipt could not be read reliably. A brighter, flatter image usually resolves this.");
   }
 
   if (USE_REMOTE && file) {
     const body = new FormData();
     body.append("file", file);
     const res = await fetch("/api/extract-receipt", { method: "POST", body });
-    if (!res.ok) throw new Error("The extraction service is busy right now. Please retry.");
+    if (!res.ok) throw new Error("The extraction service is temporarily unavailable. Please try again in a moment.");
     const json = (await res.json()) as ExtractionResult;
     options.onStage?.("done", 100);
     return json;

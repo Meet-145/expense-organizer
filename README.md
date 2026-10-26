@@ -24,3 +24,22 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Receipt scanning setup (Gemini)
+
+Receipt uploads are extracted by Google's Gemini vision model, called from a
+server-only function (`src/services/gemini-receipt-extraction.js`) so the API
+key is never exposed to the browser.
+
+1. Get a key at https://aistudio.google.com/app/apikey
+2. Copy `.env.local.example` to `.env.local` and set `GEMINI_API_KEY`
+3. `npm run dev` (or restart your dev server if it was already running)
+
+For a deployed environment, set `GEMINI_API_KEY` as a server-side secret on
+your host. This app builds against a Cloudflare Workers target by default
+(see `vite.config.ts`); on Workers, set it as a secret/binding — plain `.env`
+files aren't read at runtime there. `GEMINI_MODEL` is optional (defaults to
+`gemini-2.5-flash`) if you want to point at a different Gemini model.
+
+There is no demo/sample data anymore — new workspaces start empty, and every
+upload goes through the real extraction pipeline above.

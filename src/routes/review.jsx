@@ -96,17 +96,7 @@ function ReviewPage() {
             <CardTitle className="font-display text-base text-slate-900">Source document</CardTitle>
           </CardHeader>
           <CardContent>
-            <ReceiptPreview
-              previewUrl={draft?.previewUrl}
-              fileName={draft?.fileName}
-              merchant={ex.merchant}
-              gstin={ex.gstin}
-              invoiceNumber={ex.invoiceNumber}
-              items={ex.lineItems.map((i) => ({ label: i.description, amount: i.amount }))}
-              subtotal={ex.subtotal}
-              tax={ex.taxAmount}
-              total={ex.total}
-            />
+            <ReceiptPreview previewUrl={draft?.previewUrl} fileName={draft?.fileName} />
           </CardContent>
         </Card>
       </div>

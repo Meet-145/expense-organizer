@@ -17,7 +17,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { useRequireAuth } from "@/hooks/use-auth";
 import { authService } from "@/services/auth";
-import { DemoNotice } from "./DemoNotice";
 import { Logo } from "./Logo";
 
 const NAV = [
@@ -169,7 +168,6 @@ export function AppShell({
         </header>
 
         <main className="space-y-6 p-4 sm:p-6">
-          <DemoNotice />
           {children}
         </main>
       </div>

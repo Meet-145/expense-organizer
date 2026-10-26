@@ -37,19 +37,9 @@ function UploadPage() {
                 fileName: file.name,
                 fileSize: file.size,
                 previewUrl: file.type === "application/pdf" ? undefined : previewUrl,
-                isDemo: false,
                 file,
               });
               toast.success("Receipt uploaded. Extracting details…");
-              navigate({ to: "/processing" });
-            }}
-            onDemo={() => {
-              draftStore.set({
-                fileName: "sample-receipt-ccd-mgroad.jpg",
-                fileSize: 248_000,
-                isDemo: true,
-              });
-              toast.info("Using a sample receipt for this extraction.");
               navigate({ to: "/processing" });
             }}
           />
@@ -78,12 +68,9 @@ function UploadPage() {
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-slate-600">
               <p>
-                This workspace runs <span className="font-medium text-slate-900">entirely in your browser</span>.
-                Your files stay on your device, and the extraction service returns realistic sample results.
-              </p>
-              <p>
-                The extraction layer is isolated behind a service module, so a live vision model can be
-                connected through a secure server endpoint without any change to this interface.
+                Your receipt is sent to a secure server endpoint, which calls Google's Gemini vision
+                model to read it. <span className="font-medium text-slate-900">Your API key never
+                reaches the browser</span> — only the parsed result comes back.
               </p>
             </CardContent>
 

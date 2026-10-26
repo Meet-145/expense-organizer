@@ -1,13 +1,11 @@
 import { useCallback, useRef, useState } from "react";
-import { FileUp, ImageIcon, Sparkles, TriangleAlert } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { FileUp, ImageIcon, TriangleAlert } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { validateFile } from "@/services/receipt-extraction";
 
 export function ReceiptDropzone({
   onFileReady,
-  onDemo,
 }
 
  ) {
@@ -110,13 +108,6 @@ export function ReceiptDropzone({
           </div>
         </div>
       )}
-
-      <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-        <span className="text-sm text-slate-500">No receipt on hand?</span>
-        <Button variant="outline" onClick={onDemo} className="border-brand/40 text-brand">
-          <Sparkles className="size-4" /> Try a sample receipt
-        </Button>
-      </div>
     </div>
   );
 }
